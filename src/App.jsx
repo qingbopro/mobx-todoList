@@ -7,7 +7,6 @@ import Filter from './components/filter'
 import { inject, observer } from 'mobx-react'
 
 import { FILTER_ALL, FILTER_COMPLETED, FILTER_ACTIVE } from './config'
-
 @inject(res => ({
   filterList: res.store.filterList
 }))
