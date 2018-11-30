@@ -8,22 +8,22 @@ import { inject, observer } from 'mobx-react'
 @observer
 class TodoItem extends Component {
   onClick = () => {
-    this.props.deleteTodo(this.props.data.id)
+    this.props.deleteTodo(this.props.item)
   }
   onCheck = () => {
-    this.props.check(this.props.data.id)
+    this.props.check(this.props.item)
   }
   render() {
     return (
       <li
-        style={{ textDecoration: this.props.data.completed ? 'line-through' : 'none' }}
+        style={{ textDecoration: this.props.item.completed ? 'line-through' : 'none' }}
       >
         <input
           type="checkbox"
-          checked={this.props.data.completed}
+          checked={this.props.item.completed}
           onChange={this.onCheck}
         />
-        {this.props.data.text} <button onClick={this.onClick}>X</button>
+        {this.props.item.text} <button onClick={this.onClick}>X</button>
       </li>
     )
   }

@@ -1,5 +1,13 @@
 import { observable, action, computed, autorun, reaction, when } from 'mobx'
 
+class todo {
+  constructor(value) {
+    this.text = value
+    this.id = new Date().getTime()
+    this.completed = false
+  }
+}
+
 class todos {
   constructor() {
     this.todoList = JSON.parse(localStorage.getItem('todoList')) || []
@@ -16,13 +24,13 @@ class todos {
     reaction(
       () => this.todoList,
       todoList => {
-        console.log(todoList) // 不会响应 this.todoList ==== this.todoList
+        console.log('reaction todoList', todoList) // 不会响应 this.todoList ==== this.todoList
       }
     )
     reaction(
       () => this.todoList.length,
       length => {
-        console.log(length) // 可以响应
+        console.log('reaction length', length) // 可以响应
         console.log('reaction创建时不会先执行一次')
       }
     )
@@ -49,17 +57,12 @@ class todos {
 
   @action.bound
   addTodo(value) {
-    this.todoList.push({
-      text: value,
-      id: new Date().getTime(),
-      completed: false
-    })
+    this.todoList.push(new todo(value))
   }
 
   @action.bound
-  check(id) {
-    const index = this.todoList.findIndex(item => item.id === id)
-    this.todoList[index].completed = !this.todoList[index].completed
+  check(item) {
+    item.completed = !item.completed
   }
 
   @action.bound
@@ -68,8 +71,8 @@ class todos {
   }
 
   @action.bound
-  deleteTodo(id) {
-    const index = this.todoList.findIndex(item => item.id === id)
+  deleteTodo(item) {
+    const index = this.todoList.findIndex(value => value === item)
     this.todoList.splice(index, 1)
   }
 }

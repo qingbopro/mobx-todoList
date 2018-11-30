@@ -13,7 +13,7 @@ class TodoList extends Component {
       <div>
         <ul>
           {filterList.map(item => (
-            <TodoItem data={item} key={item.id} />
+            <TodoItem item={item} key={item.id} />
           ))}
         </ul>
       </div>
