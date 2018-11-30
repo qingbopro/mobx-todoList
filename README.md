@@ -107,7 +107,7 @@ class extends Component{
 
 ### 修改 store
 
-`@action` 不是必须的，只要状态修改视图都会更新
+`@action` 不是必须的，只要状态修改，视图都会更新
 `bound` 用来绑定 `this` 到 `Store`，建议所有方法都加上`@action.bound`
 
 ```javascript
@@ -142,8 +142,6 @@ class Store {
 #### @autorun
 
 和`computed`一样，根据内部引用的`observable`进行响应。区别在于`computed`用来给`observer`一个新的值以更新视图，`autorun`仅仅只是一个回调
-
-autorun 在初始化时不会执行，只有在
 
 ```javascript
 class todos {
