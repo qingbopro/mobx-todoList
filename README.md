@@ -107,8 +107,17 @@ class extends Component{
 
 ### 修改 store
 
-`@action` 不是必须的，只要状态修改，视图都会更新
-`bound` 用来绑定 `this` 到 `Store`，建议所有方法都加上`@action.bound`
+`@action` 不是必须的，只要状态修改，视图都会更新，下面代码依然有效
+
+```javascript
+this.props.todoList.push({
+  text: e.target.value,
+  id: new Date().getTime(),
+  completed: false
+})
+```
+
+`bound` 用来绑定 `this` 到 `store`，建议所有方法都加上`@action.bound`
 
 ```javascript
 class Store {
