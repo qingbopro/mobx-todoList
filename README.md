@@ -94,7 +94,7 @@ class extends Component{
 }
 ```
 
-或者
+或者。`@inject('store')`必须叫 store
 
 ```javascript
 @inject('store')
