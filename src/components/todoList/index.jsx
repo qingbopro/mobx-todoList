@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import TodoItem from '../todoItem'
 import { inject, observer } from 'mobx-react'
 
-@inject(res => ({
-  filterList: res.store.filterList
+@inject(stores => ({
+  filterList: stores.store.filterList
 }))
 @observer
 class TodoList extends Component {

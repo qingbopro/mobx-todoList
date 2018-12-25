@@ -5,7 +5,6 @@ import store from './store'
 import './index.css'
 import App from './App'
 
-// 属性名必须叫store
 ReactDOM.render(
   <Provider store={store}>
     <App />

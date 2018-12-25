@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { inject } from 'mobx-react'
 
-@inject(res => ({
-  current: res.store.current,
-  filter: res.store.filter
+@inject(stores => ({
+  current: stores.store.current,
+  filter: stores.store.filter
 }))
 class Filter extends Component {
   onClick = () => {

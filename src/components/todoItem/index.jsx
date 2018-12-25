@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
 
-@inject(res => ({
-  deleteTodo: res.store.deleteTodo,
-  check: res.store.check
+@inject(stores => ({
+  deleteTodo: stores.store.deleteTodo,
+  check: stores.store.check
 }))
 @observer
 class TodoItem extends Component {

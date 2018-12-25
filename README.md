@@ -70,11 +70,10 @@ class extends Component{
 }
 ```
 
-也可以用 `mobx-react` 的 `Provider` 组件全局传递。
-必须用 store 属性传递
+也可以用 `mobx-react` 的 `Provider` 组件全局传递。Provider 上注册的所有 props 对应的就是`@inject('store', ...)` 或者 `@inject(stores => {console.log(stores) // {store: {}, ...}})`
 
 ```javascript
-<Provider store={store}>
+<Provider store={store} {...}>
   <App />
 </Provider>
 ```
@@ -84,8 +83,8 @@ class extends Component{
 如果是用 `Provider` 传递的
 
 ```javascript
-@inject(res => ({
-  todoList: res.store.todoList
+@inject(stores => ({
+  todoList: stores.store.todoList
 }))
 class extends Component{
   render(){
@@ -94,7 +93,7 @@ class extends Component{
 }
 ```
 
-或者。`@inject('store')`必须叫 store
+或者
 
 ```javascript
 @inject('store')

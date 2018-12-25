@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { inject } from 'mobx-react'
 
-@inject(res => ({
-  addTodo: res.store.addTodo,
-  // todoList: res.store.todoList
+@inject(stores => ({
+  addTodo: stores.store.addTodo,
+  // todoList: stores.store.todoList
 }))
 class AddTodo extends Component {
   onKeyUp = e => {
