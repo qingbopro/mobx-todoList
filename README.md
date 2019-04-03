@@ -129,6 +129,18 @@ class Store {
 
 ### 响应 Store
 
+#### @observer
+
+使视图根据数据更新，不用observer修饰不会响应
+
+```javascript
+@inject(stores => ({
+  filterList: stores.store.filterList
+}))
+@observer
+class TodoList extends Component {}
+```
+
 #### @computed
 
 不需要定义监听的状态，会自动根据内部引用的 `observable` 值变化而执行
